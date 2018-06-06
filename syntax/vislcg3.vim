@@ -1,5 +1,5 @@
 " Vim syntax file
-" Language:     VISL CG-3 natural language constraint grammar 
+" Language:     VISL CG-3 natural language constraint grammar
 " Maintainer:   Flammie Pirinen <flammie@iki.fi>
 " Last Change:  2015-05-30T20:02:22+0100
 " URL: http://iki.fi/~flammie
@@ -24,7 +24,7 @@ syn keyword     vislcg3KeyWords         ADD ADDCOHORT ADDRELATION ADDRELATIONS A
 syn match     vislcg3Operators        /[-|+^∩∆]/
 
 " some fragments
-syn match       vislcg3Id               /[[:alnum:]_-]*/
+syn match       vislcg3Id               /\i*/
 syn match       vislcg3Form             /"<[^>]*>"/     contained
 syn match       vislcg3Word             /"[^"]"/        contained
 syn region      vislcg3Bracketed        start=/(/       end=/)/       contains=vislcg3Form,vislcg3Word,vislcg3Id,vislcg3Operators
