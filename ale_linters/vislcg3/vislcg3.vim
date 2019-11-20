@@ -23,9 +23,10 @@ function! ale_linters#vislcg3#vislcg3#Handle(buffer, lines) abort
 
     for l:match in ale#util#GetMatches(a:lines, l:pattern)
         call add(l:output, {
-        \   'lnum': l:match[1] + 0,
+        \   'lnum': l:match[4] + 0,
         \   'text': l:match[3],
         \   'type': l:match[2][0],
+        \   'filename': l:match[1],
         \})
     endfor
 
