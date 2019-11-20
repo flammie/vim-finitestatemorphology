@@ -27,7 +27,7 @@ syn match     vislcg3Operators        /[-|+^∩∆]/
 syn match       vislcg3Id               /\i*/
 syn match       vislcg3Form             /"<[^>]*>"/     contained
 syn match       vislcg3Word             /"[^"]"/        contained
-syn region      vislcg3Bracketed        start=/(/       end=/)/       contains=vislcg3Form,vislcg3Word,vislcg3Id,vislcg3Operators
+syn region      vislcg3Bracketed        start=/(/       end=/)/       contains=vislcg3Form,vislcg3Word,vislcg3Id,vislcg3Operators,vislcg3KeyWords
 
 " Comments
 syn keyword     vislcg3CommentNotes     TODO FIXME XXX  contained
