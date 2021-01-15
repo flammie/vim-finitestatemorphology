@@ -25,6 +25,8 @@ syn keyword	xfstKeyWords	define read regex echo exit die hyvästi
 " Operator
 syn match	xfstOper	/[|&!?*#+^;_"@]/	display
 syn match	xfstOper	/=>\|<=\|<\=>\|=\|->\|.o.\|.x.\|(->)/	display
+syn region	xfstRegex	start=/define [a-zA-Z]*/	end=/;/	contains=xfstChar,xfstPair,xfstEscapee,xfstOper
+syn region	xfstRegex	start=/read regex/	end=/;/	contains=xfstChar,xfstPair,xfstEscapee,xfstOper
 syn region	xfstBraces	start=/[({]/	end=/[})]/	contains=xfstChar,xfstPair,xfstEscapee,xfstOper
 syn match	xfstPair	/[^: ]\+:[^: ]\+/	display
 syn match	xfstPair	/[^: ]\+: /	display
@@ -44,7 +46,7 @@ syn match	xfstComment	/!.*/	contains=xfstCommentNotes,xfstCommentInfos
 " Highlights
 highlight def link	xfstKeyWords	Keyword
 highlight def link	xfstEscapee	Character
-highlight def link	xfstRulename	Identifier
+highlight def link	xfstRegex	Identifier
 highlight def link	xfstOper	Operator
 highlight def link	xfstChar	Character
 highlight def link	xfstPair	Character
