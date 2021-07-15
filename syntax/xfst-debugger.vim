@@ -12,7 +12,7 @@ elseif exists("b:current_syntax")
 endif
 
 if !exists("main_syntax")
-  let main_syntax = 'xfst'
+  let main_syntax = 'xfst-debugger'
 endif
 
 syn sync clear
