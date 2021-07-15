@@ -20,43 +20,42 @@ syn sync clear
 syn case match
 
 " Internal keywords
-syn keyword	xfstKeyWords	define read regex echo exit die hyvästi
+syn keyword	pmatchKeyWords	define Define read regex echo exit die hyvästi set
 
 " Operator
-syn match	xfstOper	/[|&!?*#+^;_"@]/	display
-syn match	xfstOper	/=>\|<=\|<\=>\|=\|->\|.o.\|.x.\|(->)/	display
-syn region	xfstRegex	start=/[dD]efine [a-zA-Z]*/	end=/;/	contains=xfstChar,xfstPair,xfstEscapee,xfstOper
-syn region	xfstRegex	start=/read regex/	end=/;/	contains=xfstChar,xfstPair,xfstEscapee,xfstOper
-syn region	xfstBraces	start=/[({]/	end=/[})]/	contains=xfstChar,xfstPair,xfstEscapee,xfstOper
-syn match	xfstPair	/[^: ]\+:[^: ]\+/	display
-syn match	xfstPair	/[^: ]\+: /	display
-syn match	xfstPair	/ :[^: ]\+/	display
-syn match	xfstChar	/[A-Za-z]\+/	contained
+syn match	pmatchOper	/[|&!?*#+^;_"@]/	display
+syn match	pmatchOper	/=>\|<=\|<\=>\|=\|->\|.o.\|.x.\|(->)/	display
+syn region	pmatchRegex	start=/[dD]efine [a-zA-Z]*/	end=/;/	contains=pmatchFunc,pmatchPair,pmatchChar,pmatchComment,pmatchOper
+syn region	pmatchRegex	start=/read regex/	end=/;/	contains=pmatchFunc,pmatchPair,pmatchChar,pmatchComment,pmatchOper
+syn match       pmatchFunc      /[A-Za-z]*[(][^)]*[)]/   display
+syn match       pmatchFunc      /@[A-Za-z]*"[^"]*"/   display
+syn match	pmatchPair	/[^: ]\+:[^: ]\+/	display
+syn match	pmatchPair	/[^: ]\+: /	display
+syn match	pmatchPair	/ :[^: ]\+/	display
+syn match	pmatchChar	/[A-Za-z]\+/	contained
 
 " SpecialChar
-syn match xfstEscapee	/%[+%^]/	display
+syn match pmatchEscapee	/%[+%^]/	display
 
 " Comments
-syn keyword	xfstCommentNotes	TODO FIXME XXX	contained
-syn match	xfstCommentInfos	/@\w\+/	contained
-syn match	xfstComment	/!.*/	contains=xfstCommentNotes,xfstCommentInfos
+syn keyword	pmatchCommentNotes	TODO FIXME XXX	contained
+syn match	pmatchCommentInfos	/@\w\+/	contained
+syn match	pmatchComment	/!.*/	contains=pmatchCommentNotes,pmatchCommentInfos
 
 " Clusters, regions...
 
 " Highlights
-highlight def link	xfstKeyWords	Keyword
-highlight def link	xfstEscapee	Character
-highlight def link	xfstRegex	Identifier
-highlight def link	xfstOper	Operator
-highlight def link	xfstChar	Character
-highlight def link	xfstPair	Character
-highlight def link	xfstCommentInfos	SpecialComment
-highlight def link	xfstCommentNotes	Todo
-highlight def link	xfstComment	Comment
+highlight def link	pmatchKeyWords	Keyword
+highlight def link	pmatchEscapee	Character
+highlight def link	pmatchOper	Operator
+highlight def link	pmatchFunc	Function
+highlight def link	pmatchCommentInfos	SpecialComment
+highlight def link	pmatchCommentNotes	Todo
+highlight def link	pmatchComment	Comment
 
-let b:current_syntax = "xfst"
+let b:current_syntax = "pmatch"
 
-if main_syntax == 'xfst'
+if main_syntax == 'pmatch'
   unlet main_syntax
 endif
 
