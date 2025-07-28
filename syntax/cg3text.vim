@@ -26,7 +26,7 @@ syn match       vislcg3Comment     /^:.*$/
 
 " Clusters, regions...
 syn match       vislcg3Form             /^"<[^>]*>"/
-syn match       vislcg3Word             /^\t\+"[^"]"/
+syn match       vislcg3Word             /^\t\+"[^"]\+"/
 syn match       vislcg3Analysis         / [A-Za-z]\+/
 syn match       vislcg3Trace            /^;.*$/
 
