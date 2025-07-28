@@ -26,14 +26,17 @@ syn match       vislcg3Comment     /^:.*$/
 
 " Clusters, regions...
 syn match       vislcg3Form             /^"<[^>]*>"/
-syn match       vislcg3Word             /^\t+"[^"]"/
-syn match       vislcg3Analysis         /\w\+/
+syn match       vislcg3Word             /^\t\+"[^"]"/
+syn match       vislcg3Analysis         / [A-Za-z]\+/
+syn match       vislcg3Trace            /^;.*$/
 
 " Highlights
 highlight def link      vislcg3KeyWords Keyword
 highlight def link      vislcg3Form String
 highlight def link      vislcg3Word        Character
 highlight def link      vislcg3Comment  Comment
+highlight def link      vislcg3Trace    Comment
+highlight def link      vislcg3Analysis         Identifier
 
 let b:current_syntax = "cg3text"
 
